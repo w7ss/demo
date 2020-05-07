@@ -21,9 +21,9 @@ public class ExceptionAdvicer {
 
     @ExceptionHandler(value = {NullPointerException.class/*, IllegalAccessException.class, IllegalStateException.class*/})
     public Object handleNPE(Throwable throwable) {
-        Map<String,Object> expection = new HashMap<>();
-        expection.put("message",throwable.getMessage());
-        return expection;
+        Map<String,Object> exception = new HashMap<>();
+        exception.put("message",throwable.getMessage());
+        return exception;
     }
 
 }

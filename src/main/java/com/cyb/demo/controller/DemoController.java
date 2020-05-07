@@ -2,21 +2,26 @@ package com.cyb.demo.controller;
 
 import com.cyb.demo.bean.Person;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
-    @GetMapping(value = "/test")
-    public Person test(){
+    @GetMapping(value = "/get")
+    public Person pullPerson(){
         //throw new NullPointerException("空指针异常！");
-        return new Person(1L,"lucy");
+        return new Person(1L,"lucy","dfh369");
+    }
+
+    @PostMapping(value = "/set")
+    public void pushPerson(@Valid @RequestBody Person p){
+        System.out.println(p.getName());
+        System.out.println(p.getCode());
     }
 
     /**
