@@ -1,11 +1,5 @@
 package com.cyb.demo.bean;
 
-/**
- * 人的模型对象
- *
- * @author mercyblitz
- * @date 2017-10-14
- **/
 public class Person {
 
     private Long id;
