@@ -19,8 +19,9 @@ import java.util.Map;
 @RestControllerAdvice(basePackages = "com.cyb.demo.controller")
 public class ExceptionAdvicer {
 
-    @ExceptionHandler(value = {NullPointerException.class/*, IllegalAccessException.class, IllegalStateException.class*/})
+    @ExceptionHandler(value = {NullPointerException.class/*, IllegalAccessException.class, IllegalStateException.class*/,org.springframework.web.bind.MethodArgumentNotValidException.class})
     public Object handleNPE(Throwable throwable) {
+        throwable.printStackTrace();
         Map<String,Object> exception = new HashMap<>();
         exception.put("message",throwable.getMessage());
         return exception;

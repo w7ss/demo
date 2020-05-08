@@ -1,5 +1,6 @@
 package com.cyb.demo.bean;
 
+import com.cyb.demo.suite.annotation.CustomValidation;
 import lombok.Data;
 
 import javax.validation.constraints.Max;
@@ -15,6 +16,7 @@ public class Person {
     @NotNull
     private String name;
 
+    @CustomValidation
     private String code;
 
     public Person(){
