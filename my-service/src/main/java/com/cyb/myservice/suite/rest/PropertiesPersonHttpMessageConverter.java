@@ -1,6 +1,6 @@
-package com.cyb.demo.suite.rest;
+package com.cyb.myservice.suite.rest;
 
-import com.cyb.demo.bean.Person;
+import com.cyb.myservice.bean.Person;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
@@ -11,7 +11,6 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.lang.Nullable;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 import java.util.Properties;
 

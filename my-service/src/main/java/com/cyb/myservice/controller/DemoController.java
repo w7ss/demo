@@ -1,6 +1,6 @@
-package com.cyb.demo.controller;
+package com.cyb.myservice.controller;
 
-import com.cyb.demo.bean.Person;
+import com.cyb.myservice.bean.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

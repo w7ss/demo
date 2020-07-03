@@ -1,6 +1,5 @@
-package com.cyb.demo.config;
+package com.cyb.myservice.config;
 
-import com.cyb.demo.suite.rest.PropertiesPersonHttpMessageConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

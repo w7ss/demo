@@ -1,6 +1,6 @@
-package com.cyb.demo.suite.annotation;
+package com.cyb.myservice.suite.annotation;
 
-import com.cyb.demo.suite.validator.CustomValidator;
+import com.cyb.myservice.suite.validator.CustomValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

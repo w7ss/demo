@@ -1,4 +1,4 @@
-package com.cyb.demo.controller.advice;
+package com.cyb.myservice.controller.advice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
