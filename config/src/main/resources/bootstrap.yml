@@ -1,0 +1,45 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: config
+  profiles:
+    active: test
+  # 配置中心
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config/ # /root/dev/config/
+  #推送配置到客户端
+  rabbitmq:
+    cache:
+      channel:
+        checkout-timeout: 1s
+    host: rabbitmqha
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+#暴露/actuator/bus-refresh接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: false #使用host主机名注册
+  client:
+    service-url:
+      defaultZone: http://ybf:ybf@eureka1:1025/eureka/
+
+#配置文件中的数据库密码专用
+jasypt:
+  encryptor:
+    password: ssz@ABD

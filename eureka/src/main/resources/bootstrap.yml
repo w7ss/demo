@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: eureka
+
+eureka:
+  instance:
+    hostname: eureka1
+    prefer-ip-address: false #使用主机名注册
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://ybf:ybf@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.9
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

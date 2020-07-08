@@ -18,6 +18,7 @@
 	<modules>
 		<module>my-service</module>
 		<module>eureka</module>
+		<module>config</module>
 	</modules>
 
 	<properties>
