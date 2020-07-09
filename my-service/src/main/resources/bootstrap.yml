@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: my-service
+  profiles:
+    active:
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: config
+      #username: ybf
+      #password: smart#YBF666
+
+# 注册中心配置
+#eureka:
+  #instance:
+    #prefer-ip-address: false
+  #client:
+    #service-url:
+      #defaultZone: http://ybf:ybf@eureka1:1025/eureka/
+
+#logging:
+  #level:
+    #io.swagger.models.parameters.AbstractSerializableParameter: error
