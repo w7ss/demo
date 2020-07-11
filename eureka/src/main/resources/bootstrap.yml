@@ -5,18 +5,18 @@ spring:
     name: eureka
 
 eureka:
-  instance:
-    hostname: eureka1
-    prefer-ip-address: false #ʹ��������ע��
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://ybf:ybf@${eureka.instance.hostname}:${server.port}/eureka/
-  server:
-    eviction-interval-timer-in-ms: 4000
-    enable-self-preservation: false
-    renewal-percent-threshold: 0.9
+ instance:
+  hostname: eureka1
+  prefer-ip-address: false #使用主机名注册
+ client:
+  register-with-eureka: false
+  fetch-registry: false
+  service-url:
+   defaultZone: http://localhost:${server.port}/${eureka.instance.hostname}/eureka/
+ server:
+  eviction-interval-timer-in-ms: 4000 # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+  enable-self-preservation: false # 关闭自我保护模式（缺省为打开）
+  renewal-percent-threshold: 0.9 # 指定每分钟需要收到的续约次数的阈值
 
 management:
   endpoints:
