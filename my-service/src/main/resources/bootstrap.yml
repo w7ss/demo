@@ -8,7 +8,7 @@ spring:
     config:
       fail-fast: true
       name: ${spring.application.name}
-      profile: ${spring.profiles.active}
+      #profile: ${spring.profiles.active}
       discovery:
         enabled: true
         service-id: config
@@ -16,13 +16,15 @@ spring:
       #password: smart#YBF666
 
 # 注册中心配置
-#eureka:
-  #instance:
-    #prefer-ip-address: false
-  #client:
-    #service-url:
-      #defaultZone: http://ybf:ybf@eureka1:1025/eureka/
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://eureka1:8080/eureka/
+    #registry-fetch-interval-seconds: #注册信息获取间隔
+    #instance-info-replication-interval-seconds: #客户端应用状态信息上传间隔
 
-#logging:
+    #logging:
   #level:
     #io.swagger.models.parameters.AbstractSerializableParameter: error

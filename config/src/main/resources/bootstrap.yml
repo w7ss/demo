@@ -26,7 +26,7 @@ management:
 eureka:
  client:
   service-url:
-   defaultZone: http://localhost:8080/eureka/
+   defaultZone: http://eureka1:8080/eureka/
 
 #配置文件中的数据库密码专用
   #jasypt:
