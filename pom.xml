@@ -17,6 +17,7 @@
 
 	<modules>
 		<module>my-service</module>
+		<module>my-consumer</module>
 		<module>eureka</module>
 		<module>config</module>
 	</modules>

@@ -1,0 +1,10 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /myconsumer
+management:
+  endpoints:
+    web:
+      exposure:
+        #include: health,info,env,beans
+        include: "*"

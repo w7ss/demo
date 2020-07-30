@@ -1,4 +1,4 @@
-package com.cyb.myservice.controller.advice;
+package com.cyb.myconsumer.controller.advice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,7 +16,7 @@ import java.util.Map;
  * @author cyb
  * @date 2020-05-07
  **/
-@RestControllerAdvice(basePackages = "com.cyb.myservice.controller")
+@RestControllerAdvice(basePackages = "com.cyb.myconsumer.controller")
 public class ExceptionAdvicer {
 
     @ExceptionHandler(value = {NullPointerException.class/*, IllegalAccessException.class, IllegalStateException.class*/,org.springframework.web.bind.MethodArgumentNotValidException.class})

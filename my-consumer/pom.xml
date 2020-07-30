@@ -9,8 +9,8 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>my-service</artifactId>
-    <name>my-service</name>
+    <artifactId>my-consumer</artifactId>
+    <name>my-consumer</name>
     <packaging>jar</packaging>
     <description>Demo project for Spring Boot</description>
 
@@ -82,7 +82,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.cyb.myservice.MyServiceApplication</mainClass>
+                    <mainClass>com.cyb.myconsumer.MyConsumerApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
