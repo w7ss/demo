@@ -1,6 +1,6 @@
 package com.cyb.myconsumer.suite.rest;
 
-import com.cyb.myservice.bean.Person;
+import com.cyb.myconsumer.bean.Person;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;

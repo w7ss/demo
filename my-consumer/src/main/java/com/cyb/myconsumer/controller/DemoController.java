@@ -1,6 +1,9 @@
 package com.cyb.myconsumer.controller;
 
 import com.cyb.myconsumer.bean.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -11,14 +14,17 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping(value = "/get")
     public Person pullPerson(){
         //throw new NullPointerException("空指针异常！");
@@ -54,11 +60,11 @@ public class DemoController {
 
     @GetMapping(value = "/consume")
     public Object consume(){
-        System.out.println("---------------");
-        RestTemplate restTemplate=new RestTemplate();//使用spring默认实现SimpleClientHttpRequestFactory
-        //RestTemplate restTemplate=new RestTemplate(new HttpComponentsClientHttpRequestFactory());//使用httpclient实现
-        //RestTemplate restTemplate=new RestTemplate(new OkHttp3ClientHttpRequestFactory());//使用okhttp实现
+        List<ServiceInstance> serviceInstances=discoveryClient.getInstances("my-service");
+        for(ServiceInstance instance:serviceInstances){
+            System.out.println(instance.getUri());
+        }
 
-        return restTemplate.getForEntity("http://localhost:8088/myservice/demo/get",Person.class);
+        return restTemplate.getForEntity(serviceInstances.get(0).getUri()+"/myservice/demo/get",Person.class);
     }
 }

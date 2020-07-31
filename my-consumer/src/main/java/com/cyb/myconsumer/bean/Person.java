@@ -1,6 +1,6 @@
 package com.cyb.myconsumer.bean;
 
-import com.cyb.myservice.suite.annotation.CustomValidation;
+import com.cyb.myconsumer.suite.annotation.CustomValidation;
 import lombok.Data;
 
 import javax.validation.constraints.Max;

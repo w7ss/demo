@@ -1,6 +1,6 @@
 package com.cyb.myconsumer.suite.validator;
 
-import com.cyb.myservice.suite.annotation.CustomValidation;
+import com.cyb.myconsumer.suite.annotation.CustomValidation;
 import org.springframework.util.StringUtils;
 
 

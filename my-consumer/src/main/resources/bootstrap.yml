@@ -1,6 +1,6 @@
 spring:
   application:
-    name: my-service
+    name: my-consumer
   profiles:
     active:
   # 配置中心
