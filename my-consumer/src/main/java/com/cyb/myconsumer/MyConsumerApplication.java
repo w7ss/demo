@@ -6,6 +6,7 @@ import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPageRegistry;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.RestTemplate;
@@ -24,6 +25,7 @@ public class MyConsumerApplication implements ErrorPageRegistrar {
     }
 
     @Bean
+    @LoadBalanced
     public RestTemplate RestTemplate(){
         RestTemplate restTemplate=new RestTemplate();//使用spring默认实现SimpleClientHttpRequestFactory
         //RestTemplate restTemplate=new RestTemplate(new HttpComponentsClientHttpRequestFactory());//使用httpclient实现

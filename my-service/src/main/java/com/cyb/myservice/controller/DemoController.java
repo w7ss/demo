@@ -17,6 +17,7 @@ public class DemoController {
     @GetMapping(value = "/get")
     public Person pullPerson(){
         //throw new NullPointerException("空指针异常！");
+        System.out.println("I'm chosen");
         return new Person(1L,"lucy","dfh369");
     }
 

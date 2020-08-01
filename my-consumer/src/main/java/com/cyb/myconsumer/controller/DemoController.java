@@ -65,6 +65,6 @@ public class DemoController {
             System.out.println(instance.getUri());
         }
 
-        return restTemplate.getForEntity(serviceInstances.get(0).getUri()+"/myservice/demo/get",Person.class);
+        return restTemplate.getForEntity("http://my-service/myservice/demo/get",Person.class);
     }
 }
