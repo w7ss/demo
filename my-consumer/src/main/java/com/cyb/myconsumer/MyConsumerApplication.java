@@ -2,6 +2,7 @@ package com.cyb.myconsumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPageRegistry;
@@ -26,7 +27,8 @@ public class MyConsumerApplication implements ErrorPageRegistrar {
 
     @Bean
     @LoadBalanced
-    public RestTemplate RestTemplate(){
+    public RestTemplate RestTemplate(/*RestTemplateBuilder builder*/){
+        //return builder.build();
         RestTemplate restTemplate=new RestTemplate();//使用spring默认实现SimpleClientHttpRequestFactory
         //RestTemplate restTemplate=new RestTemplate(new HttpComponentsClientHttpRequestFactory());//使用httpclient实现
         //RestTemplate restTemplate=new RestTemplate(new OkHttp3ClientHttpRequestFactory());//使用okhttp实现
