@@ -15,9 +15,10 @@ import java.util.Set;
 @RequestMapping("/demo")
 public class DemoController {
     @GetMapping(value = "/get")
-    public Person pullPerson(){
+    public Person pullPerson() throws InterruptedException {
         //throw new NullPointerException("空指针异常！");
         System.out.println("I'm chosen");
+        Thread.sleep(2000);
         return new Person(1L,"lucy","dfh369");
     }
 

@@ -1,9 +1,12 @@
 package com.cyb.myconsumer.controller;
 
 import com.cyb.myconsumer.bean.Person;
+import com.cyb.myconsumer.service.DemoService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -18,12 +21,13 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/demo")
+@RefreshScope
 public class DemoController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
     @Autowired
-    private RestTemplate restTemplate;
+    private DemoService ds;
 
     @GetMapping(value = "/get")
     public Person pullPerson(){
@@ -65,6 +69,6 @@ public class DemoController {
             System.out.println(instance.getUri());
         }
 
-        return restTemplate.getForEntity("http://my-service/myservice/demo/get",Person.class);
+        return ds.consume();
     }
 }

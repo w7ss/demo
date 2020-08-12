@@ -8,3 +8,25 @@ management:
       exposure:
         #include: health,info,env,beans
         include: "*"
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD #隔离策略，默认为THREAD
+          thread:
+            timeoutInMilliseconds: 1000 #超时时间，hystrixCommand命令执行超时时间，单位：毫秒,默认1000
+            interruptOnTimeout: true #超时的时候，是否中断执行操作。默认为ture
+          semaphore:
+            maxConcurrentRequests: 10 #信号量请求数，当设置为信号量隔离策略时，设置最大允许的请求数，默认为10
+        timeout:
+          enabled: true #hystrixCommand命令执行是否开启超时。默认为ture
+      circuitBreaker:
+        errorThresholdPercentage: 50 #CircuitBreaker设置打开fallback并启动fallback逻辑的错误比例，默认为50
+        forceOpen: false #强制打开断路器，拒绝所有请求，默认false
+  threadpool:
+    default:
+      coreSize: 10 #当为线程隔离时，核心线程池大小，默认10
+      maximumSize: 10 #当隔离策略为线程池隔离模式时，最大线程池大小配置，默认10。1.5.9版本中还需要allowMaximumSizeToDivergeFromCore为true
+      allowMaximumSizeToDivergeFromCore: false #allowMaximumSizeToDivergeFromCore，该属性允许配置maximumSize生效，默认false
