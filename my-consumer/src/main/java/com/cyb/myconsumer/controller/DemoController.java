@@ -2,6 +2,7 @@ package com.cyb.myconsumer.controller;
 
 import com.cyb.myconsumer.bean.Person;
 import com.cyb.myconsumer.service.DemoService;
+import com.cyb.myconsumer.service.FeignService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -28,6 +29,8 @@ public class DemoController {
     private DiscoveryClient discoveryClient;
     @Autowired
     private DemoService ds;
+    @Autowired
+    private FeignService fs;
 
     @GetMapping(value = "/get")
     public Person pullPerson(){
@@ -70,5 +73,10 @@ public class DemoController {
         }
 
         return ds.consume();
+    }
+
+    @GetMapping(value = "/consumeByFeign")
+    public Object consumeByFeign(){
+        return fs.consume();
     }
 }

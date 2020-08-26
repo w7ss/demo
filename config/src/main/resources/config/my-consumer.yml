@@ -16,7 +16,7 @@ hystrix:
         isolation:
           strategy: THREAD #隔离策略，默认为THREAD
           thread:
-            timeoutInMilliseconds: 1000 #超时时间，hystrixCommand命令执行超时时间，单位：毫秒,默认1000
+            timeoutInMilliseconds: 3000 #超时时间，hystrixCommand命令执行超时时间，单位：毫秒,默认1000
             interruptOnTimeout: true #超时的时候，是否中断执行操作。默认为ture
           semaphore:
             maxConcurrentRequests: 10 #信号量请求数，当设置为信号量隔离策略时，设置最大允许的请求数，默认为10
@@ -30,3 +30,7 @@ hystrix:
       coreSize: 10 #当为线程隔离时，核心线程池大小，默认10
       maximumSize: 10 #当隔离策略为线程池隔离模式时，最大线程池大小配置，默认10。1.5.9版本中还需要allowMaximumSizeToDivergeFromCore为true
       allowMaximumSizeToDivergeFromCore: false #allowMaximumSizeToDivergeFromCore，该属性允许配置maximumSize生效，默认false
+
+ribbon:
+  ReadTimeout: 3000 #请求处理的超时时间
+  ConnectTimeout: 3000 #请求连接的超时时间
