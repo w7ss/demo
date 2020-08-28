@@ -34,3 +34,7 @@ hystrix:
 ribbon:
   ReadTimeout: 3000 #请求处理的超时时间
   ConnectTimeout: 3000 #请求连接的超时时间
+
+feign:
+  hystrix:
+    enabled: true
