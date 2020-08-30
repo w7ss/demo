@@ -1,5 +1,4 @@
 server:
-  port: 8082
   servlet:
     context-path: /gateway
 
@@ -7,12 +6,12 @@ Spring:
   cloud:
     gateway:
       routes:
-        - id: url-proxy-1 #路由 ID，保持唯一
-          uri: lb://seckill-provider #目标服务地址/微服务名
+        - id: test #路由 ID，保持唯一
+          uri: lb://my-service #目标服务地址/微服务名
           predicates:  #路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）。
-            - Path=/csdn
+            - Path=/test
           ####################
-          #上面这段配置的意思是，配置了一个 id 为 url-proxy-1的URI代理规则，路由的规则为：当访问地址http://localhost:8080/csdn/1.jsp时，会路由到上游地址seckill-provider/1.jsp。
+          #上面这段配置的意思是，配置了一个 id 为 test的URI代理规则，路由的规则为：当访问地址http://localhost:8080/test/1.jsp时，会路由到上游地址seckill-provider/1.jsp。
           ###################
           filters:
             - StripPrefix=1 #过滤器StripPrefix，作用是去掉请求路径的最前面n个部分截取掉。StripPrefix=1就代表截取路径的个数为1，比如前端过来请求/test/good/1/view，匹配成功后，路由到后端的请求路径就会变成http://localhost:8888/good/1/view。
