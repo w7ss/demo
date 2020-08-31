@@ -15,7 +15,14 @@ spring:
         enabled: true
         service-id: config
 
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
 eureka:
+  instance:
+    prefer-ip-address: false
   client:
     service-url:
       defaultZone: http://eureka1:8080/eureka/

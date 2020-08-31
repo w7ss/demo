@@ -18,7 +18,7 @@ public class DemoController {
     public Person pullPerson() throws InterruptedException {
         //throw new NullPointerException("空指针异常！");
         System.out.println("I'm chosen");
-        Thread.sleep(4000);
+        Thread.sleep(1000);
         return new Person(1L,"lucy","dfh369");
     }
 
