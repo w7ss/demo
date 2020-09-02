@@ -20,7 +20,7 @@ spring:
 # 注册中心配置
 eureka:
   instance:
-    prefer-ip-address: false
+    prefer-ip-address: true
   client:
     service-url:
       defaultZone: http://eureka1:8080/eureka/

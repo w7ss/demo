@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/demo")
+//@RequestMapping("/demo")
 public class DemoController {
     @GetMapping(value = "/get")
     public Person pullPerson() throws InterruptedException {
