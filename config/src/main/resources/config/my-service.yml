@@ -1,6 +1,6 @@
-#server:
-  #servlet:
-    #context-path: /myservice
+server:
+  servlet:
+    context-path: /myservice
 management:
   endpoints:
     web:

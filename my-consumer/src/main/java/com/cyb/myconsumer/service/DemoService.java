@@ -14,7 +14,7 @@ public class DemoService {
 
     @HystrixCommand(fallbackMethod = "fallBack")
     public Object consume(){
-        return restTemplate.getForEntity("http://my-service/myservice/demo/get", Person.class);
+        return restTemplate.getForEntity("http://my-service/myservice/get", Person.class);
     }
 
     private Object fallBack(){

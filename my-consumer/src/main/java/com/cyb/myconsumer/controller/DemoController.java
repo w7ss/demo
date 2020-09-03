@@ -5,6 +5,7 @@ import com.cyb.myconsumer.service.DemoService;
 import com.cyb.myconsumer.service.FeignService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -21,7 +22,7 @@ import javax.validation.Valid;
 import java.util.*;
 
 @RestController
-@RequestMapping("/demo")
+//@RequestMapping("/demo")
 @RefreshScope
 public class DemoController {
 

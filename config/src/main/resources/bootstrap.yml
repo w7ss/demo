@@ -20,8 +20,6 @@ management:
       exposure:
         include: "*"
 
-
-
 # 注册中心配置
 eureka:
  client:

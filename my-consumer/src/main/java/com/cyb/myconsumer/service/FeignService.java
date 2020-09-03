@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "my-service", fallback = FeignServiceHystrix.class)
 public interface FeignService {
 
-    @GetMapping("/myservice/demo/get")
+    @GetMapping("/myservice/get")
     public Object consume();
 }
