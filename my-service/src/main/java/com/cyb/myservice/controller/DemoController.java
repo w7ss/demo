@@ -1,19 +1,19 @@
 package com.cyb.myservice.controller;
 
 import com.cyb.myservice.bean.Person;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 //@RequestMapping("/demo")
 public class DemoController {
+
     @GetMapping(value = "/get")
     public Person pullPerson() throws InterruptedException {
         //throw new NullPointerException("空指针异常！");
@@ -48,4 +48,6 @@ public class DemoController {
 
         return errors;
     }
+
+
 }

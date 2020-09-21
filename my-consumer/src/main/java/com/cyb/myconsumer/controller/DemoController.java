@@ -3,19 +3,13 @@ package com.cyb.myconsumer.controller;
 import com.cyb.myconsumer.bean.Person;
 import com.cyb.myconsumer.service.DemoService;
 import com.cyb.myconsumer.service.FeignService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.cyb.myconsumer.stream.MessageProducer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -32,6 +26,18 @@ public class DemoController {
     private DemoService ds;
     @Autowired
     private FeignService fs;
+    //spring的kfka使用方式
+    /*private final KafkaTemplate<String,String> kafkaTemplate;
+    private final String topic;*/
+
+    @Autowired
+    private MessageProducer messageProducer;
+
+    /*@Autowired
+    public DemoController(KafkaTemplate<String, String> kafkaTemplate, @Value("${kafka.topic}") String topic) {
+        this.kafkaTemplate = kafkaTemplate;
+        this.topic=topic;
+    }*/
 
     @GetMapping(value = "/get")
     public Person pullPerson(){
@@ -79,5 +85,15 @@ public class DemoController {
     @GetMapping(value = "/consumeByFeign")
     public Object consumeByFeign(){
         return fs.consume();
+    }
+
+    /*@GetMapping("/sendMes")
+    public void sendKafkaMes(String message){
+        kafkaTemplate.send(topic,message);
+    }*/
+
+    @GetMapping(value = "/sendMessage")
+    public void sendMessage(String message){
+        messageProducer.sendMessage(message);
     }
 }
