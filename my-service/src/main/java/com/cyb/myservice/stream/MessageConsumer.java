@@ -6,6 +6,7 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.cloud.stream.messaging.Source;
+import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
@@ -17,8 +18,13 @@ public class MessageConsumer {
     @Qualifier(Sink.INPUT)
     private MessageChannel messageChannel;
 
-    @StreamListener(Sink.INPUT)
+    /*@StreamListener(Sink.INPUT)
     public void onMessage(String message){
+        System.out.println(message);
+    }*/
+
+    @ServiceActivator(inputChannel=Sink.INPUT)
+    public void onMessage1(String message) {
         System.out.println(message);
     }
 }

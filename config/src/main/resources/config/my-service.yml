@@ -11,18 +11,15 @@ management:
 
 kafka:
   topic: temp
-  #spring方式使用kafka
 spring:
   kafka:
     bootstrap-servers: 127.0.0.1:9092
     consumer:
-      group-id: test
-      #keySerializer: org.apache.kafka.common.serialization.StringSerializer
-      #valueSerializer: org.apache.kafka.common.serialization.StringSerializer
+      keyDeserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      valueDeserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
   cloud:
-    kafka:
-      stream:
-        bindings:
-          input:
-            destination: ${kafka.topic}
+    stream:
+      bindings:
+        input:
+          destination: ${kafka.topic}
 

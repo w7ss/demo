@@ -45,16 +45,10 @@ spring:
   kafka:
     bootstrap-servers: 127.0.0.1:9092
     producer:
-      serializer:
-        class: kafka.serializer.StringEncoder
-      key:
-        serializer:
-          class: kafka.serializer.StringEncoder
-      keySerializer: org.apache.kafka.common.serialization.StringSerializer
-      valueSerializer: org.apache.kafka.common.serialization.StringSerializer
+      keySerializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      valueSerializer: org.apache.kafka.common.serialization.ByteArraySerializer
   cloud:
-    kafka:
-      stream:
-        bindings:
-          output:
-            destination: ${kafka.topic}
+    stream:
+      bindings:
+        output:
+          destination: ${kafka.topic}
